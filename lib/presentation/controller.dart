@@ -24,6 +24,7 @@ class EmployeesController {
         return null;
       }
     }
+    return result;
   }
 }
 

@@ -21,6 +21,10 @@ class HomeView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(snapshot.data![index].employeeName!),
+                    subtitle:
+                        Text(snapshot.data![index].employeeSalary.toString()),
+                    trailing:
+                        Text(snapshot.data![index].employeeAge.toString()),
                   );
                 },
                 itemCount: snapshot.data!.length,

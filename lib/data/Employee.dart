@@ -16,10 +16,15 @@ class Employee {
   }
 
   String? get status => _status;
+
   set status(String? status) => _status = status;
+
   List<Data>? get data => _data;
+
   set data(List<Data>? data) => _data = data;
+
   String? get message => _message;
+
   set message(String? message) => _message = message;
 
   Employee.fromJson(Map<String, dynamic> json) {
@@ -75,14 +80,23 @@ class Data {
   }
 
   int? get id => _id;
+
   set id(int? id) => _id = id;
+
   String? get employeeName => _employeeName;
+
   set employeeName(String? employeeName) => _employeeName = employeeName;
+
   int? get employeeSalary => _employeeSalary;
+
   set employeeSalary(int? employeeSalary) => _employeeSalary = employeeSalary;
+
   int? get employeeAge => _employeeAge;
+
   set employeeAge(int? employeeAge) => _employeeAge = employeeAge;
+
   String? get profileImage => _profileImage;
+
   set profileImage(String? profileImage) => _profileImage = profileImage;
 
   Data.fromJson(Map<String, dynamic> json) {
