@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../data/Employee.dart';
+import 'controller.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -10,10 +13,30 @@ class HomeView extends StatelessWidget {
         title: const Text("Caching"),
       ),
       body: FutureBuilder(
-        future: ,
-        builder: (context, AsyncSnapshot snapshot) {
-          return ;
-        },),
+        future: EmployeesController.getAllEmployees(),
+        builder: (context, AsyncSnapshot<List<Data>?> snapshot) {
+          if (snapshot.hasData) {
+            if (snapshot.data!.isNotEmpty) {
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(snapshot.data![index].employeeName!),
+                  );
+                },
+                itemCount: snapshot.data!.length,
+              );
+            } else {
+              return const Center(child: Text("No data Found"));
+            }
+          } else if (snapshot.hasError) {
+            return Center(child: Text(snapshot.error.toString()));
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
     );
   }
 }
